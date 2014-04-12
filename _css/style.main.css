@@ -1,0 +1,165 @@
+html, body{
+	height: 100%;
+}
+body { 
+  color: #34495e;
+  font-family: "NanumGothic", sans-serif;
+  font-size: 18px;
+  line-height: 1.231;
+  margin: 0;
+  margin-top: 40px;
+  padding: 0;
+  overflow: hidden;
+}
+
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+	z-index: -1;
+    background-image: url(/_res/bg.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-o-transition: 1s;
+	transition: 1s;
+}
+
+#login-failure{
+	-webkit-transition: 0.25s;
+	-moz-transition: 0.25s;
+	-o-transition: 0.25s;
+	transition: 0.25s;
+	max-width: 350px;
+	margin: 0 auto;
+	opacity: 0;
+}
+
+.login-wrapper{
+	margin-top: 200px;
+}
+
+.blur{
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    -o-filter: blur(5px);
+}
+
+.black-box{
+	display: none;
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	background-color: black;
+	opacity: 0;
+	-webkit-transition: 0.4s;
+	-moz-transition: 0.4s;
+	-o-transition: 0.4s;
+	transition: 0.4s;
+	z-index: 9998;
+}
+
+#about{
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 600px;
+    margin-left: -300px;
+    height: 400px;
+    margin-top: -200px;
+    z-index: 9999;
+}
+
+#login{
+	max-width: 300px;
+}
+
+.time{
+	position: fixed;
+	bottom: 0;
+}
+
+.alertbox{
+	margin: 0 auto;
+	padding: 0;
+	background: rgba(220,220,220,0.8);
+	box-shadow: 0px 1px 60px #555;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.alertbox .alertbox-header{
+	-moz-border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+	overflow: hidden;
+	margin: 0;
+	-webkit-transition: 0.25s;
+	-moz-transition: 0.25s;
+	-o-transition: 0.25s;
+	transition: 0.25s;
+}
+
+.alertbox .alertbox-header h3{
+	margin: 1px 20px;
+	color: white;
+	font-size: 0.9em;
+	font-weight: normal;
+}
+
+/*should change color swatch later*/
+.alertbox .red{
+	background-color: #E74C3C;
+}
+
+.alertbox .green{
+	background-color: #2ECC71;
+}
+
+.alertbox .black{
+	background-color: #2C3E50;
+}
+
+.alertbox .alertbox-body{
+	text-align: center;
+	margin: 20px;
+	line-height: 1.9em;
+}
+
+.alertbox .alertbox-btn{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width: 100%;
+	display: inline;
+	text-align: center;
+	overflow: hidden;
+	margin: 0;
+	border: 1px solid #3498DB;
+	background-color: rgba(0,0,0,0);
+	-moz-border-radius: 0 0 10px 10px;
+	-webkit-border-radius: 0 0 10px 10px;
+	border-radius: 0 0 10px 10px;
+}
+
+.alertbox .alertbox-btn-left{
+	width: 50%;
+	-moz-border-radius: 0 0 0 10px;
+	-webkit-border-radius: 0 0 0 10px;
+	border-radius: 0 0 0 10px;
+	border-left: 0;
+	float: left;
+}
+
+.alertbox .alertbox-btn-right{
+	width: 50%;
+	-moz-border-radius: 0 0 10px 0;
+	-webkit-border-radius: 0 0 10px 0;
+	border-radius: 0 0 10px 0;
+	border-right: 0;
+}

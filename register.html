@@ -1,0 +1,79 @@
+﻿<!-- 2013년 9월 12일 DB -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>회원가입양식</title>
+	<script language='javascript'>
+	function f_chk(){
+		form3527=document.frm3;
+		if(form3527.id.value=="" || form3527.pw.value=="" || form3527.name.value==""){
+			if(form3527.id.value==""){
+				alert("아이디를 입력하세요");
+				form3527.id.focus();
+			}
+			else if(form3527.pw.value==""){
+				alert("비밀번호를 입력하세요");
+				form3527.pw.focus();
+			}
+		}
+		else if(form3527.pw.value != form3527.pw2.value){
+			alert("비밀번호가 서로 다릅니다!");
+			form3527.pw.focus();
+		}
+		else{
+			form3527.submit();
+		}
+	}
+
+	function d_chk(){
+		if(document.frm3.id.value==""){
+			alert("아이디를 입력하세요");
+			documentfrm3.id.focus();
+		}	
+
+	url = "./id_check.php?id="+document.frm3.id.value;  // idCheck.php파일에 id값으로 입력한 아이디 값을 넘김
+	cw=screen.availWidth; // 화면 너비
+	ch=screen.availHeight; // 화면 높이
+	sw=300; // 띄울 창의 너비
+	sh=200; // 띄울 창의 높이
+	ml=(cw-sw)/2; // 가운데 띄우기 위한 창의 x위치
+	mt=(ch-sh)/2; // 가운데 띄우기 위한 창의 y위치
+
+
+	NewWindow=window.open(url,'idcheck','width='+sw+',height='+sh+',top='+mt+',left='+ml+',toobar=no,scrollbars=auto,menubar=no,status=no ,directories=no,');
+}
+</script>
+</head>
+<body topmargin="0" leftmargin="0" bgcolor="transparent">
+	<div style="background-color:#ececec; width:auto;height:600px;">
+		<center>
+			<form name="frm3" method="post" action="./_core/">
+				<input type="hidden" name="action" value="register">
+				<table border="1" cellspacing="0">
+					<tr><td colspan="2" align="center">회원가입</td></tr>
+					<tr>
+						<td>아이디:</td>
+						<td><input type="text" name="id" size="20" maxlength="20"></td>
+						</tr>
+						<tr>
+							<td>비밀번호:</td>
+							<td><input type="password" name="pw" size="20" maxlength="20"></td>
+						</tr>
+						<tr>
+							<td>비밀번호 확인:</td>
+							<td><input type="password" name="pw2" size="20" maxlength="20"></td>
+						</tr>
+						<tr>
+							<td align="center" colspan="2">
+								<input type="button" value="전송" onclick="f_chk();">
+								<input type="reset" value="재입력" >
+
+							</td>
+						</tr>
+					</table>
+				</form>
+				Copyright ⓒ by JHSERVER All rights reserved
+			</center>
+		</div>
+	</body>
+	</html>

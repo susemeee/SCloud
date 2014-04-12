@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+div{
+	background-color: pink;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+</style>
+<body>
+	<div id="original">Hello world</div>
+	<button>asdfasdf</button>
+</body>
+
+<script src="_js/jquery-1.8.3.min.js"></script>
+<script>
+var newdiv = '<div id="new" style="background-image: url(/_res/bg.jpg)">Bye world</div>';
+$(document).ready(function(){
+	$('button').click(dodo);
+
+function dodo(){
+	$(newdiv).hide().appendTo("body").fadeIn(400, function(){alert("fin")});
+}
+});
+</script>
+</html>
