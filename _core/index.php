@@ -1,5 +1,7 @@
 <?php 
-define('BASEPATH', TRUE); 
+define('BASEPATH', "asdf");
+
+
 require_once('./user.php');
 require_once('./file.php');
 
@@ -31,7 +33,7 @@ if(isset($_REQUEST['action'])){
 			$_SESSION['user'] = "";
 			$_SESSION['bg'] = "";
 			session_destroy();
-			header('Location: /');
+			header('Location: ./');
 		}
 		else if($action == "updatepos"){
 			$fid = $_GET['file']; $x = $_GET['x']; $y = $_GET['y'];
@@ -70,7 +72,7 @@ if(isset($_REQUEST['action'])){
 					session_start();
 					$_SESSION['user'] = $uid;
 					//only used to assign background image
-					$_SESSION['bg'] = "url(/storage/user_bg/".$_POST['id'].".jpg";
+					$_SESSION['bg'] = "url(./storage/user_bg/".$_POST['id'].".jpg";
 					die("success");
 				}else{
 					//auth failed

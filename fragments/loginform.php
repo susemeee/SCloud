@@ -23,5 +23,5 @@
 	</div>
 </div>
 
-<script src="./_js/login.js"></script>
+<script src="/<?=BASEPATH?>/_js/login.js"></script>
 </div>

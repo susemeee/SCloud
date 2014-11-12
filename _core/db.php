@@ -36,7 +36,7 @@ class Database{
 		$c = $this->db_init();
 		mysqli_query($c, $cq_user) or die(mysqli_error($c));
 		mysqli_query($c, $cq_fileindex) or die(mysqli_error($c));
-		mysqli_query($c, $cq_fkey) or die(mysqli_error($c));
+		// mysqli_query($c, $cq_fkey) or die(mysqli_error($c));
 
 		return $success;
 	}

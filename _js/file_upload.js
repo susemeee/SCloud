@@ -92,7 +92,7 @@ if(window.File && window.FileReader && window.FileList && window.Blob){
 		aa[uid] = ajax;
 	}
 	function display_result(data){
-		console.log(data);
+		// console.log(data);
 		if(data.indexOf('<div') > -1){
 			var file = $(data);
 			//bug?
@@ -102,6 +102,12 @@ if(window.File && window.FileReader && window.FileList && window.Blob){
 			var error = $("<div class='alert alert-danger hidden'>");
 			error.text(data);
 			$('#file-container').after(error);
+			setTimeout(function(){
+				error.fadeOut('1000', function() {
+					error.remove();
+				});		
+			}, 5000);
+
 		}
 	}
 

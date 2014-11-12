@@ -10,12 +10,14 @@ class File extends Database{
 		($r[2] > 1024 ? ($r[2]/1000)."KB" : $r[2]." Bytes");
 
 		$ea = explode('.', $r[1]);
-		$ext = $ea[count($ea)-1];
-		$ext_path = $_SERVER['DOCUMENT_ROOT'].'/_res/icons/'.$ext.'.png';
+		$ext = strtolower($ea[count($ea)-1]);
+		
+		$ext_path = $_SERVER['DOCUMENT_ROOT'].'/'.BASEPATH.'/_res/icons/'.$ext.'.png';
 		//we use default icon if we don't have icons of extension
-		if(!file_exists($ext_path))
+		if(!file_exists($ext_path)){
 			$ext = 'file';
-
+		}
+			
 		$fstr = "<file id='$r[0]' type='$r[3]' style='left: $r[8]px; top: $r[9]px; background-image: url(_res/icons/$ext.png);'>";
 		$fstr = $fstr."<div class='file-tooltip'>
 		<div class='t-btn-wrap'>
@@ -53,7 +55,7 @@ class File extends Database{
 		//$file is MySQL Object
 
 		// /storage/f5d1278e8109edd94e1e4197e04873b9/bfcc01ed68ad2f5de56370b0609a6278
-		$path = $_SERVER['DOCUMENT_ROOT']."/storage/".$file[4]."/".$file[0];
+		$path = $_SERVER['DOCUMENT_ROOT'].'/'.BASEPATH."/storage/".$file[4]."/".$file[0];
 		$name = $file[1];
 		$size = $file[2];
 		$type = (strlen($file[3]) > 0) ? $file[3] : "application/octet-stream";
@@ -137,18 +139,17 @@ class File extends Database{
 			$size = $file_array["file"]["size"];
 			$type = $file_array["file"]["type"];
 			$new_fid = md5(rand());
-			$path_dir = $_SERVER['DOCUMENT_ROOT']."/storage/".$uid."/";
+			$path_dir = $_SERVER['DOCUMENT_ROOT'].'/'.BASEPATH."/storage/".$uid."/";
 
 			//create a directory if not exists
 			if (!file_exists($path_dir)) {
    				mkdir($path_dir, 0777, true);
 			}
+			//upstreaming file data
+			move_uploaded_file($tmp_name, $path_dir.$new_fid) or die("upload failed");
 
 			$q = "INSERT INTO files VALUES('$new_fid', '$name', '$size', '$type', '$uid', NULL, NULL, NULL, 0, 0);";
 			$result = mysqli_query($c, $q) or die(mysqli_error($c));
-
-			//upstreaming file data
-			move_uploaded_file($tmp_name, $path_dir.$new_fid) or die("upload failed");
 
 			//updating new file position
 			$this->update_position($new_fid, $x, $y);

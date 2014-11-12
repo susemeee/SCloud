@@ -34,7 +34,7 @@
 		$('#login-wrap').fadeOut(400, function(){
 			$('#login-wrap').remove();
 			$.ajax({
-				url: '/fragments/filelist.php',
+				url: '?logined',
 				success: function(result){
 					var ro = $(result);
 					var ob = $('#background');

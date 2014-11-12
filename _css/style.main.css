@@ -19,7 +19,7 @@ body {
     bottom: 0;
     right: 0;
 	z-index: -1;
-    background-image: url(/_res/bg.jpg);
+    background-image: url(../_res/bg.jpg);
     background-repeat:no-repeat;
     background-size:cover;
 	-webkit-transition: 1s;
